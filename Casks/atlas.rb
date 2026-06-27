@@ -2,7 +2,7 @@
 cask "atlas" do
   desc "Atlas deterministic code intelligence: symbols, calls, routes, impact, cross-repo."
   homepage "https://github.com/dominic097/atlas"
-  version "0.1.5"
+  version "0.1.6"
 
   livecheck do
     skip "Auto-generated on release."
@@ -12,27 +12,27 @@ cask "atlas" do
 
   on_macos do
     on_intel do
-      url "https://github.com/dominic097/atlas/releases/download/v0.1.5/atlas_0.1.5_darwin_amd64.tar.gz",
+      url "https://github.com/dominic097/atlas/releases/download/v0.1.6/atlas_0.1.6_darwin_amd64.tar.gz",
         verified: "github.com/dominic097/atlas/"
-      sha256 "29068506ccb45f7f430b4493d33823bba861f9166a03cf0274d78f978b3ea225"
+      sha256 "904f30350b8ae4531bacce4ff577af89790539f637c7c0626cf73cfdd744a9ba"
     end
     on_arm do
-      url "https://github.com/dominic097/atlas/releases/download/v0.1.5/atlas_0.1.5_darwin_arm64.tar.gz",
+      url "https://github.com/dominic097/atlas/releases/download/v0.1.6/atlas_0.1.6_darwin_arm64.tar.gz",
         verified: "github.com/dominic097/atlas/"
-      sha256 "5f0e4b4be9682fbb3e24ee941c4c7d051094288ea5fb58e951d0cdd93f88220d"
+      sha256 "59ffc678937c16697b26d9cdd91962e863c5956826926c77b8288f94203f9e46"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/dominic097/atlas/releases/download/v0.1.5/atlas_0.1.5_linux_amd64.tar.gz",
+      url "https://github.com/dominic097/atlas/releases/download/v0.1.6/atlas_0.1.6_linux_amd64.tar.gz",
         verified: "github.com/dominic097/atlas/"
-      sha256 "8a6f4e5c8ae6b630ce11ff3f538c2e37562b5c70b1c7377b3f21ccae2c20d7f9"
+      sha256 "024b6354079ad1c46b5e17b43c0582e80731473060eeaa71afcf78aecd2424c3"
     end
     on_arm do
-      url "https://github.com/dominic097/atlas/releases/download/v0.1.5/atlas_0.1.5_linux_arm64.tar.gz",
+      url "https://github.com/dominic097/atlas/releases/download/v0.1.6/atlas_0.1.6_linux_arm64.tar.gz",
         verified: "github.com/dominic097/atlas/"
-      sha256 "00e70b63d74743eef0382ba50d52805a59ab5cfaf369ca4ab10ebcbb1b4f64a2"
+      sha256 "918cc67a27a0b3c1c0123f2bcf755bc27fb829c4a956a16b23b388ea1ec05b7a"
     end
   end
 
