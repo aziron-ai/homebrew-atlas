@@ -2,7 +2,7 @@
 cask "atlas" do
   desc "Atlas deterministic code intelligence: symbols, calls, routes, impact, cross-repo."
   homepage "https://github.com/aziron-ai/atlas"
-  version "0.1.33"
+  version "0.1.34"
 
   livecheck do
     skip "Auto-generated on release."
@@ -12,27 +12,27 @@ cask "atlas" do
 
   on_macos do
     on_intel do
-      url "https://github.com/aziron-ai/atlas/releases/download/v0.1.33/atlas_0.1.33_darwin_amd64.tar.gz",
+      url "https://github.com/aziron-ai/atlas/releases/download/v0.1.34/atlas_0.1.34_darwin_amd64.tar.gz",
         verified: "github.com/aziron-ai/atlas/"
-      sha256 "b4174644ab8d2e48cfa5c1ed0274e3774858e72d991e929ba7c86d931799ae2a"
+      sha256 "05d065e9b7a9d6cf1347ffcd3c8df831326a32eb34e3e2feda8eeefbadd01374"
     end
     on_arm do
-      url "https://github.com/aziron-ai/atlas/releases/download/v0.1.33/atlas_0.1.33_darwin_arm64.tar.gz",
+      url "https://github.com/aziron-ai/atlas/releases/download/v0.1.34/atlas_0.1.34_darwin_arm64.tar.gz",
         verified: "github.com/aziron-ai/atlas/"
-      sha256 "58595a8da31308060b02aee49089e2d42013685c98a0a7e0931e80164193aec1"
+      sha256 "8aed273752c1d6c781bf2800fce6a60cc3bb2f89d9eb88579ccff3c8c54f1373"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/aziron-ai/atlas/releases/download/v0.1.33/atlas_0.1.33_linux_amd64.tar.gz",
+      url "https://github.com/aziron-ai/atlas/releases/download/v0.1.34/atlas_0.1.34_linux_amd64.tar.gz",
         verified: "github.com/aziron-ai/atlas/"
-      sha256 "aeb5fd46fd92a46aea082bedd8e1491fdf2b7e926776d06ab62940ffc8baeff6"
+      sha256 "3647a988a67886db5b1c5a43ae4a24be06216b6d8f34a4e7141787fbefe87f4f"
     end
     on_arm do
-      url "https://github.com/aziron-ai/atlas/releases/download/v0.1.33/atlas_0.1.33_linux_arm64.tar.gz",
+      url "https://github.com/aziron-ai/atlas/releases/download/v0.1.34/atlas_0.1.34_linux_arm64.tar.gz",
         verified: "github.com/aziron-ai/atlas/"
-      sha256 "560defb8eb8878e35be0cb0f5459cd32719b0a2af2128751192bed15e6139683"
+      sha256 "6ab40b466415825436aba2610412a60e9522128188c34ced1eef5f1766a67201"
     end
   end
 
