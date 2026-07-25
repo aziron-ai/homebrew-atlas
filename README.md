@@ -58,6 +58,12 @@ Beyond placing the binary, the cask's post-install step:
   coding assistants found on your machine — **Claude (desktop + CLI), Codex,
   Copilot, Cursor, and Gemini** — so they can query your index immediately.
 
+From v0.1.47 the post-install step also sends **one anonymous install event**
+to Google Analytics — channel (`brew`), version, OS, and arch only. No PII, no
+machine identifier (a throwaway random `client_id`). Opt out by installing with
+`ATLAS_NO_ANALYTICS=1` or `DO_NOT_TRACK=1`; the ping is best-effort (3-second
+cap) and can never fail or slow the install.
+
 Preview or repair registrations at any time:
 
 ```sh
