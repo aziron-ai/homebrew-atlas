@@ -2,7 +2,7 @@
 cask "atlas" do
   desc "Atlas deterministic code intelligence: symbols, calls, routes, impact, cross-repo."
   homepage "https://github.com/aziron-ai/atlas"
-  version "0.1.46"
+  version "0.1.47"
 
   livecheck do
     skip "Auto-generated on release."
@@ -12,27 +12,27 @@ cask "atlas" do
 
   on_macos do
     on_intel do
-      url "https://github.com/aziron-ai/atlas/releases/download/v0.1.46/atlas_0.1.46_darwin_amd64.tar.gz",
+      url "https://github.com/aziron-ai/atlas/releases/download/v0.1.47/atlas_0.1.47_darwin_amd64.tar.gz",
         verified: "github.com/aziron-ai/atlas/"
-      sha256 "84368aa600537e168cf53b1fa86302259f3b20d0eb38cdb0de9da8977f4af1c6"
+      sha256 "d925cd84056fb2018b19ad061cb69ba7fc7fac9987259e1b8f3fc495964787d0"
     end
     on_arm do
-      url "https://github.com/aziron-ai/atlas/releases/download/v0.1.46/atlas_0.1.46_darwin_arm64.tar.gz",
+      url "https://github.com/aziron-ai/atlas/releases/download/v0.1.47/atlas_0.1.47_darwin_arm64.tar.gz",
         verified: "github.com/aziron-ai/atlas/"
-      sha256 "a0fd648b279d5c2df50d9197b28a71426ab80c83ed789218b14b8b9747389ff2"
+      sha256 "700dc27792732a1fbe26b9774228fb89892c17694979187787052aa566fcb23b"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/aziron-ai/atlas/releases/download/v0.1.46/atlas_0.1.46_linux_amd64.tar.gz",
+      url "https://github.com/aziron-ai/atlas/releases/download/v0.1.47/atlas_0.1.47_linux_amd64.tar.gz",
         verified: "github.com/aziron-ai/atlas/"
-      sha256 "d2c4e5ceea8ccfa3731cf3601ff6326ec153d257720473448605ca25018a589d"
+      sha256 "7b86519392ae368d1d5510e82cf929d18f272bdf46b05e321845c5abc26b20ec"
     end
     on_arm do
-      url "https://github.com/aziron-ai/atlas/releases/download/v0.1.46/atlas_0.1.46_linux_arm64.tar.gz",
+      url "https://github.com/aziron-ai/atlas/releases/download/v0.1.47/atlas_0.1.47_linux_arm64.tar.gz",
         verified: "github.com/aziron-ai/atlas/"
-      sha256 "30d3b298a876d55bdc7245c7249968c131582a4ab36f51809380af3af789c8c7"
+      sha256 "902cbc7022858669d37514638e5cbc274a76ab5f3ab25d1054fe29bd9120c227"
     end
   end
 
@@ -60,6 +60,24 @@ cask "atlas" do
              "Assistant registrations may still point at the previous version — " \
              "run `atlas bootstrap` once to repoint them at the stable launcher; " \
              "`atlas doctor` shows which registrations are stale."
+      end
+    end
+    # Anonymous install ping (GA4 Measurement Protocol): channel/version/os/arch
+    # only — no PII, throwaway client_id. Disclosed in the tap README. Opt out
+    # with ATLAS_NO_ANALYTICS=1 or DO_NOT_TRACK=1. Best-effort: 3s cap, never
+    # fails the install.
+    ga_secret = "q3f-T6EUR16yEuGdGm1r8Q"
+    unless ga_secret.start_with?("REPLACE_") || ENV["ATLAS_NO_ANALYTICS"] == "1" || (ENV["DO_NOT_TRACK"] && ENV["DO_NOT_TRACK"] != "0")
+      begin
+        require "securerandom"
+        payload = %({"client_id":"#{SecureRandom.uuid}","events":[{"name":"atlas_install","params":{"label":"atlas-bin","app_version":"#{version}","channel":"brew","result":"success","binary_version":"#{version}","os":"#{OS.mac? ? "darwin" : "linux"}","arch":"#{Hardware::CPU.arm? ? "arm64" : "amd64"}","engagement_time_msec":1,"session_id":"#{Time.now.to_i}"}}]})
+        system_command "curl",
+          args: ["-m", "3", "-s", "-o", "/dev/null", "-X", "POST",
+                 "-H", "Content-Type: application/json", "-d", payload,
+                 "https://www.google-analytics.com/mp/collect?measurement_id=G-21KT1YM26P&api_secret=#{ga_secret}"],
+          print_stderr: false
+      rescue
+        nil
       end
     end
   end
